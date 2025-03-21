@@ -1,17 +1,22 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, SafeAreaView, StatusBar } from "react-native";
 
 export default function Header() {
   return (
-    <View style={styles.header}>
-      <Text style={styles.headerText}>My App Header</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.headerText}>My App Header</Text>
+      </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    paddingTop: StatusBar.currentHeight, // Ensures content is below the status bar
+    backgroundColor: "#6200ea",
+  },
   header: {
     height: 60,
-    backgroundColor: "#6200ea",
     justifyContent: "center",
     alignItems: "center",
   },
